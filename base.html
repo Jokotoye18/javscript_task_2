@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript second task</title>
+</head>
+<body>
+    <h1>Javascript second task</h1>
+    <script>
+        let data;
+        data = [
+            {principal:2500, time:1.8},
+            {principal:1000, time:5},
+            {principal:3000, time:1},
+            {principal:2000, time:3}
+        ];
+
+        let interestData;
+        interestData = [];
+        var rate;
+
+        function interestCalculator(array){
+            for(var i = 0; i < array.length; i++){
+                if(Object.values(array[i])[0] >= 2500 && 1 < Object.values(array[i])[1]  < 3){
+                    rate = 3;
+                }else if(Object.values(array[i])[0] >= 2500 && Object.values(array[i])[1] >= 3){
+                    rate = 4;
+                }else if(Object.values(array[i])[0] < 2500 || Object.values(array[i])[1] <= 1){
+                    rate = 2;
+                }else{
+                    rate = 1;
+                }let interest;
+                interest = (Object.values(array[i])[0] * Object.values(array[i])[1]  * rate) / 100;
+                //console.log(interest);
+                let object;
+                object = {
+                    principal: Object.values(array[i])[0],
+                    interest_rate: rate,
+                    time: Object.values(array[i])[1],
+                    interest: interest
+                };
+                interestData.push(object);
+            }
+            console.log(interestData);
+            return interestData;
+        }
+
+        var interest = interestCalculator(data);
+    </script>
+</body>
+</html>
